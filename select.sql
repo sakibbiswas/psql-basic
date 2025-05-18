@@ -51,3 +51,34 @@ SELECT min(age) FROM students; --aggregate function sob data niya min korese
 SELECT count(age) FROM students; --aggregate function sob data niya age koita count korese
 SELECT max(length(first_name))FROM students; 
 
+SELECT * FROM students
+WHERE email is null;
+
+SELECT * FROM students
+WHERE email is NOT null;
+
+SELECT COALESCE(email,'email is not provided') as "Email",blood_group FROM students;
+-- SELECT * FROM students WHERE country ='USA' or country ='UK' or country = 'Canada'; --line a odik or takle IN bosiya kora jai
+SELECT * FROM students WHERE country IN('USA','UK','Canada')
+
+SELECT * FROM students WHERE country NOT IN('USA','UK','Canada')
+
+SELECT * FROM students WHERE age BETWEEN 18 AND 25;
+SELECT * FROM students WHERE first_name LIKE '%am';
+SELECT * FROM students WHERE first_name ILIKE '__a_';
+
+SELECT * FROM students LIMIT 5;
+
+SELECT * FROM students WHERE country NOT IN('USA','UK','Canada') LIMIT 5;
+SELECT * FROM students WHERE country NOT IN('USA','UK','Canada') LIMIT 5 OFFSET 2;
+SELECT * FROM students WHERE country NOT IN('USA','UK','Canada') LIMIT 5 OFFSET 2 * 0;
+SELECT * FROM students WHERE country NOT IN('USA','UK','Canada') LIMIT 5 OFFSET 2 * 1;
+SELECT * FROM students WHERE country NOT IN('USA','UK','Canada') LIMIT 5 OFFSET 2 * 2;
+
+SELECT * FROM students ORDER BY student_id;
+DELETE FROM students
+WHERE grade='B';
+
+UPDATE students
+set email='sakib@gmail.com' ,age =30
+WHERE student_id = 5;
